@@ -1,28 +1,4 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a Ruby on Rails application created using Ruby 2.3.1 and Rails version 4.2.7. The application uses angular for retrieving data from database and for some front end features.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The idea of this application is for users to review games and share their revirews with others. It will also be possible to comment other reviews and have discussions about them.
