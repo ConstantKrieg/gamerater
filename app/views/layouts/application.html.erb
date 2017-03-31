@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gamerater</title>
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav" id="sidebar">
+    <li><a ng-href="/publishers">Publishers</a></li>
+    <li><%= link_to 'Games', games_path%></li>
+    <li><%= link_to 'Publishers', publishers_path%></li>
+    <li><%= link_to 'Platforms', platforms_path%></li>
+    <li><%= link_to 'Genres', genres_path%></li>
+  </ul>
+</div>
+<div id="content-wrapper">
+   <ion-view cache-view="false" view-title="My Title!">
+      <%= yield %>
+   </ion-view>   
+</div>  
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @platform.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @platform.description %>
+</p>
+
+<%= link_to 'Edit', edit_platform_path(@platform) %> |
+<a href="/platforms" ng-href="platforms">Back</a>

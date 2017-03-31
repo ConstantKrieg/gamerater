@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<h2>Publishers</h2>
+
+
+
+<div ng-app="publisherApp" ng-controller="PublisherController">
+
+<h3 ng-click="formVisible = !formVisible">Add a new publisher</h3>
+
+<div ng-show="formVisible" >
+  <%= render 'form'%>
+</div>
+
+
+
+<input ng-model="keywords">
+
+  <table id="pubs" class="table table-hover">
+  <thead>
+  <tr>
+   <th>Name</th>
+  </tr>
+  </thead> 
+  <tr ng-repeat="publisher in publishers | filter:keywords">
+    <td><a href='publishers/{{publisher.id}}'>{{publisher.name}}</a></td>
+  </tr>
+</table>      
+ 
+
+
+
+</div>
+
+
+
+

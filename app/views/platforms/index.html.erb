@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Platforms</h1>
+
+<div ng-app="platformApp" ng-controller="platformController">
+
+
+<table id="platforms" class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead> 
+  <tr ng-repeat="platform in platforms | filter:keywords">
+    <td><a href='platforms/{{platform.id}}'>{{platform.title}}</a></td>
+    <td>{{platform.description}}</td>
+  </tr>
+
+</table>
+
+
+</div>

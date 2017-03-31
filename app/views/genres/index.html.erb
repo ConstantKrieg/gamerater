@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Genres</h1>
+
+<div ng-app="GenreApp" ng-controller="genreController">
+
+  <table id="genres" class="table table-hover">
+      <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead> 
+    <tr ng-repeat="genre in genres | filter:keywords">
+      <td><a href='genres/{{genre.id}}'>{{genre.name}}</a></td>
+    </tr>
+  </table>
+
+</div>
+
+
