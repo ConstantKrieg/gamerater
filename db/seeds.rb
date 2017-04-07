@@ -10,5 +10,5 @@
 
 Publisher.create name: "Codemasters"
 Genre.create name: "Sim"
-Platform.create name: "PC"
+Platform.create title: "PC"
 Game.create name: "F1 2016", genre_id: Genre.first.id, publisher_id: Publisher.first.id
