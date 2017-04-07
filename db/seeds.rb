@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+
+Publisher.create name: "Codemasters"
+Genre.create name: "Sim"
+Platform.create name: "PC"
+Game.create name: "F1 2016", genre_id: Genre.first.id, publisher_id: Publisher.first.id
