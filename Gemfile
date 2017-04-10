@@ -52,6 +52,7 @@ gem 'thor', '0.19.1'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'angularjs-rails', '~> 1.2.25'
+gem 'jquery-turbolinks'
 
 gem 'bootstrap_form' 
 
