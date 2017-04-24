@@ -7,7 +7,7 @@ var myApp = angular.module('publisherApp', []);
 });
 
  
-  myApp.controller("PublisherController", function($scope, $window, $http) {
+  myApp.controller("PublisherController", function($scope, $http) {
       
 
       $scope.formVisible = false;

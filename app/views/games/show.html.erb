@@ -1,19 +1,27 @@
 <p id="notice"><%= notice %></p>
-
+<div ng-app="gameApp" ng-controller="gameController">
 <p>
   <strong>Name:</strong>
   <%= @game.name %>
 </p>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @game.genre_id %>
-</p>
+
 
 <p>
   <strong>Publisher:</strong>
-  <%= @game.publisher_id %>
+  <%= @game.publisher_id%>
 </p>
+
+<p><%= @game.platforms.first.title %></p>
+
+<h3 ng-click="formVisible = !formVisible">Review this game</h3>
+
+  <div ng-show="formVisible" >
+    <%= render 'reviewForm' %>
+  </div>
+  
+
+</div>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /games
   # GET /games.json
@@ -10,11 +11,14 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @review = Review.new
   end
 
   # GET /games/new
   def new
     @game = Game.new
+    @publishers = Publisher.all
+    @platforms = Platform.all
   end
 
   # GET /games/1/edit
@@ -25,11 +29,14 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
-
+    params[:platform_ids].each do |platform|
+      @game.platforms << Platform.find(platform)
+    end  
     respond_to do |format|
+      
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render :show, status: :created, location: @game }
+        format.json { render :index, status: :created, location: @game }
       else
         format.html { render :new }
         format.json { render json: @game.errors, status: :unprocessable_entity }
@@ -69,6 +76,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:name, :genre_id, :publisher_id)
+      params.require(:game).permit(:name, :publisher_id, :platform_ids)
     end
 end

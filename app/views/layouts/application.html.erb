@@ -11,16 +11,18 @@
  
 
 <div id="sidebar-wrapper">
+  <!--I have to override the get method in turbolinks so that my javascript works properly -->
   <ul class="sidebar-nav" id="sidebar">
     <li><%= link_to 'Games', games_path, method: :get%></li>
     <li><%= link_to 'Publishers', publishers_path, method: :get %></li>
     <li><%= link_to 'Platforms', platforms_path, method: :get%></li>
+    <li><%= link_to 'Reviews', reviews_path, method: :get%></li>
   </ul>
 </div>
 <div id="content-wrapper">
-   <ion-view cache-view="false" view-title="My Title!">
+  
       <%= yield %>
-   </ion-view>   
+     
 </div>  
 
 </body>

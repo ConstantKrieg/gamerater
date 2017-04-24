@@ -1,3 +1,24 @@
 
 
-<%= link_to 'New Game', new_game_path %>
+<div ng-app="gameApp" ng-controller="gameController">
+
+<input ng-model="keywords">
+
+<table id="games" class="table table-hover">
+  <thead>
+  <tr>
+   <th>Name</th>
+   <th>Publisher</th>
+   <th>Platforms</th>
+  </tr>
+  </thead> 
+  <tr ng-repeat="game in games | filter:keywords">
+    <td><a href='games/{{game.id}}'>{{game.name}}</a></td>
+    <td>{{game.publisher}}</td>
+    <td>{{game.platforms}}</td>
+  </tr>
+</table>  
+
+</div>
+
+<%= link_to 'New Game', new_game_path, method: :get %>

@@ -77,5 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+
+  #To make javascript work in production
   config.assets.js_compressor = Uglifier.new(mangle: false)
 end

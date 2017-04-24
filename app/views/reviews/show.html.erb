@@ -1,29 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @review.title %>
-</p>
+<div style=display:none;>
+  <p id="reviewId"> <%= @review.id%></p>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @review.content %>
-</p>
+<div ng-app="reviewApp" ng-controller="SingleReviewController">
+  <h3>{{review.title}}</h3>
 
-<p>
-  <strong>Score:</strong>
-  <%= @review.score %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @review.user_id %>
-</p>
-
-<p>
-  <strong>Game:</strong>
-  <%= @review.game_id %>
-</p>
+  <p>{{review.score}}</p>
+  <p>{{review.content}}</p>
+</div>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
