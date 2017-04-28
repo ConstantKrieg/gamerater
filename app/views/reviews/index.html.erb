@@ -12,9 +12,9 @@
   </tr>
   </thead> 
   <tr ng-repeat="review in reviews | filter:keywords">
-    <td><a href='reviews/{{review.id}}'>{{review.title}}</a></td>
-    <td>{{review.game.name}}</td>
-    <td>{{review.score}}</td>
+    <td><a ng-href='reviews/{{review.id}}' target="_self">{{review.title}}</a></td>
+    <td>{{review.game.name}} </td>
+    <td>{{review.score}}/10</td>
   </tr>
 </table> 
 </div>

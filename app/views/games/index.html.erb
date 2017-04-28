@@ -13,7 +13,7 @@
   </tr>
   </thead> 
   <tr ng-repeat="game in games | filter:keywords">
-    <td><a href='games/{{game.id}}'>{{game.name}}</a></td>
+    <td><a href='games/{{game.id}}' target="_self">{{game.name}}</a></td>
     <td>{{game.publisher}}</td>
     <td>{{game.platforms}}</td>
   </tr>
