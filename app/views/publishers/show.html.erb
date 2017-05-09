@@ -1,8 +1,35 @@
 <p id="notice"><%= notice %></p>
+<div ng-app="publisherApp" ng-controller="SinglePublisherController">
 
-<p>
-  <strong>Name:</strong>
-  <%= @publisher.name %>
-</p>
+<div style=display:none;>
+  <p id="publisherId"> <%= @publisher.id%></p>
+  <%if current_user%>
+  <p id="userId"> <%= current_user.id %></p>
+  <%else %>
+    <p id="userId"> 0</p>
+  <% end %>
+</div>
 
+<h2 class="title">
+  {{publisher.name}}
+</h2>
+
+
+<table  class="table table-hover">
+  <thead>
+  <tr>
+   <th>Reviews of games from this publisher</th>
+   <th>Game</th>
+   <th>Score</th>
+  </tr>
+  </thead> 
+  <tr ng-repeat="review in publisher.reviews | filter:keywords">
+    <td><a ng-href='/reviews/{{review.id}}/' target="_self">{{review.title}}</a></td>
+    <td>{{review.game.name}}</td>
+    <td>{{review.score}}/10</td>
+    
+  </tr>
+</table> 
+
+</div>
 

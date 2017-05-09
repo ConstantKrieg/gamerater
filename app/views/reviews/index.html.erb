@@ -1,17 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Reviews</h1>
+<h1 class="title">Reviews</h1>
 
 <div ng-app="reviewApp" ng-controller="ReviewController">
+  <input class="searchbox" ng-model="keywords" placeholder="Enter keywords">
   <table id="reviews" class="table table-hover">
   <thead>
   <tr>
-   <th>Title</th>
-   <th>Game</th>
-   <th>Score</th>
+   <th>
+        <button class="btn btn-danger btn-xs" ng-click="sortBy('title')">Title</button>
+        <span class="sortorder" ng-show="propertyName === 'title'" ng-class="{reverse: reverse}"></span>
+  </th>
+   <th>
+        <button class="btn btn-danger btn-xs" ng-click="sortBy('game')">Game</button>
+        <span class="sortorder" ng-show="propertyName === 'game'" ng-class="{reverse: reverse}"></span>
+   </th>
+   <th>
+        <button class="btn btn-danger btn-xs" ng-click="sortBy('score')">Score</button>
+        <span class="sortorder" ng-show="propertyName === 'score'" ng-class="{reverse: reverse}"></span>
+   </th>
   </tr>
   </thead> 
-  <tr ng-repeat="review in reviews | filter:keywords">
+  <tr ng-repeat="review in reviews | filter:keywords | orderBy:propertyName:reverse">
     <td><a ng-href='reviews/{{review.id}}' target="_self">{{review.title}}</a></td>
     <td>{{review.game.name}} </td>
     <td>{{review.score}}/10</td>

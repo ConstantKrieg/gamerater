@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
-<h2>Publishers</h2>
+<h2 class="title">Publishers</h2>
 
 
 
 <div ng-app="publisherApp" ng-controller="PublisherController">
 
-<h3 ng-click="formVisible = !formVisible">Add a new publisher</h3>
 
-<div ng-show="formVisible" >
-  <%= render 'form'%>
+<% if current_user %>
+<div id="pubForm">
+<h3 data-toggle="modal" data-target="#pubModal"><button class="btn btn-danger btn-lg">Add a new publisher</button></h3>
+
+
 </div>
+<% end %>
 
 
-
-<input ng-model="keywords">
+<input class="searchbox" ng-model="keywords" placeholder="Enter keywords">
 
   <table id="pubs" class="table table-hover">
   <thead>
@@ -22,9 +24,30 @@
   </tr>
   </thead> 
   <tr ng-repeat="publisher in publishers | filter:keywords">
-    <td><a href='publishers/{{publisher.id}}'>{{publisher.name}}</a></td>
+    <td><a href='publishers/{{publisher.id}}' target="_self">{{publisher.name}}</a></td>
   </tr>
-</table>      
+</table> 
+
+
+<div id="pubModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add publisher</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'form'%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>     
  
 
 

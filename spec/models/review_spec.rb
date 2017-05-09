@@ -1,5 +1,17 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Review, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "Does save with valid score" do
+    review = Review.create title: "review", score: 9, content: "asdf"
+
+    expect(review).to be_valid
+    expect(Review.count).to eq(1)
+  end
+
+  it "Doesnt save with invalid score" do
+    review = Review.create title: "review", score: 19, content: "asdf"
+
+    expect(review).not_to be_valid
+    expect(Review.count).to eq(0)
+  end    
 end

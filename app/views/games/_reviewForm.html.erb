@@ -1,24 +1,22 @@
-<%= form_for(@review) do |f| %>
+<%= bootstrap_form_for(@review) do |f| %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :score %><br>
-    <%= f.number_field :score %>
+    <%= f.select :score, options_for_select(0..10) %>
   </div>
 
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+  <div id="contentField" class="field">
+    <%= f.text_area :content, size: "30x35" %>
   </div>
   
   <%= f.hidden_field :game_id, value: @game.id %>
 
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :id => "createReview"%>
   </div>
 <% end %>

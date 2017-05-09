@@ -2,25 +2,40 @@
 
 <div style=display:none;>
   <p id="reviewId"> <%= @review.id%></p>
+  <%if current_user%>
+  <p id="userId"> <%= current_user.id %></p>
+  <%else %>
+    <p id="userId"> 0</p>
+  <% end %>
 </div>
+
 
 <div ng-app="reviewApp" ng-controller="SingleReviewController">
-  <h3>{{review.title}}</h3>
+  <div class="col-lg-8">
+  <h2 class="title">{{review.title}}</h2>
 
-  <p>{{review.score}}</p>
-  <p>{{review.content}}</p>
+  <h1 id="score">{{review.score}}/10</h1>
+  <p id="content">{{review.content}}</p>
+  
 
-  <h3 ng-click="formVisible = !formVisible">Show comments</h3>
-  <div ng-show="formVisible" >
-    <%= render 'comment_list'%>
-    
-    <form ng-submit="submitComment()">
-      <input type="text" ng-model="comment.content"></input>
+  <h2 id="toggleComment" ng-click="formVisible = !formVisible"><button class="btn btn-danger btn-lg">Show comments</button></h2>
+  <div id="commentList">
+  <div  ng-show="formVisible" >
+  <% if current_user%>
+    <form id="postComment" ng-submit="submitComment()">
+     <textarea id="commentArea" rows="3" cols="40"  ng-model="comment.content" placeholder="Write your comment here"></textarea>
       <input type="submit" class="btn btn-success"/>
     </form>
-
+   <% end %>
+    <%= render 'comment_list'%>
+    
+       
   </div>
+  
+  </div>
+  
+
 </div>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+
+

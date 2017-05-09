@@ -28,6 +28,24 @@ var myApp = angular.module('publisherApp', []);
 
     });
 
+    myApp.controller('SinglePublisherController', function($scope, $http){
+
+    
+    var id = document.getElementById("publisherId").innerText;
+    var url = id + '.json';
+    var userId = document.getElementById("userId").innerText;
+    $scope.formVisible = false;
+
+
+
+    $http.get(url).success( function (data, status, headers, config) {
+        console.log(data);
+        $scope.publisher = data;
+      });
+
+      
+});
+
 
     
   

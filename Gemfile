@@ -9,6 +9,7 @@ group :test do
   gem 'rspec-its'
   gem 'webmock'
   gem 'selenium-webdriver', '2.53.4'
+  gem "chromedriver-helper"
   gem 'database_cleaner'
 end  
 
@@ -17,7 +18,8 @@ group :development, :test do
   gem 'sqlite3'
   gem "better_errors"
   gem 'rspec-rails', '~> 3.5'
-  
+  gem "teaspoon-jasmine"
+  gem 'jasmine'
   
 end
 
@@ -53,6 +55,7 @@ gem 'thor', '0.19.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'angularjs-rails', '~> 1.2.25'
 gem 'jquery-turbolinks'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap_form' 
 

@@ -1,24 +1,26 @@
-
+<h1 class="title">Games</h1>
 
 <div ng-app="gameApp" ng-controller="gameController">
 
-<input ng-model="keywords">
+<input class="searchbox" ng-model="keywords" placeholder="Enter keywords">
 
 <table id="games" class="table table-hover">
   <thead>
   <tr>
    <th>Name</th>
    <th>Publisher</th>
-   <th>Platforms</th>
+ 
   </tr>
   </thead> 
   <tr ng-repeat="game in games | filter:keywords">
     <td><a href='games/{{game.id}}' target="_self">{{game.name}}</a></td>
-    <td>{{game.publisher}}</td>
-    <td>{{game.platforms}}</td>
+    <td>{{game.publisher.name}}</td>
+    
   </tr>
 </table>  
 
 </div>
 
+<% if current_user %>
 <%= link_to 'New Game', new_game_path, method: :get %>
+<% end %>

@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Platforms</h1>
+<h1 class="title">Platforms</h1>
 
 <div ng-app="platformApp" ng-controller="platformController">
 
+<h3 data-toggle="modal" data-target="#platModal"><button class="btn btn-danger btn-lg">Add a new platform</button></h3>
 
 <table id="platforms" class="table table-hover">
   <thead>
@@ -19,7 +20,25 @@
 
 </table>
 
-<%= link_to 'New', new_platform_path, method: :get%>
+<div id="platModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add platform</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'form'%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div> 
 
 
 </div>

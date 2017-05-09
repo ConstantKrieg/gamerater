@@ -1,25 +1,47 @@
 <p id="notice"><%= notice %></p>
 <div ng-app="gameApp" ng-controller="gameController">
-<p>
-  <strong>Name:</strong>
-  <%= @game.name %>
-</p>
+
+  
+  <h2 class="title"><%= @game.name %></h2>
+
 
 
 
 <p>
   <strong>Publisher:</strong>
-  <%= @game.publisher_id%>
+  <%= @game.publisher.name%>
 </p>
 
-<p><%= @game.platforms.first.title %></p>
+<p><%= @game.platforms%></p>
 
-<h3 ng-click="formVisible = !formVisible">Review this game</h3>
+<% if current_user%>
 
-  <div ng-show="formVisible" >
-    <%= render 'reviewForm' %>
+<h3><button id="reviewButton" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Review this game</button></h3>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Review this game</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'reviewForm' %>
+      </div>
+      <div class="modal-footer">
+        <button  type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
   </div>
-  
+</div>
+
+ 
+<% else %>
+  <%= link_to 'Log in or sign up to review this game', '/signin' %>
+<% end %>
 
 </div>
 

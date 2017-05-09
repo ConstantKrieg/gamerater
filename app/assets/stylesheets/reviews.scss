@@ -1,3 +1,79 @@
-// Place all the styles related to the Reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.dialogbox .body {
+  position: relative;
+  max-width: 300px;
+  height: auto;
+  margin: 5px 5px;
+  padding: 5px;
+  background-color: #DADADA;
+  border-radius: 3px;
+  border: 5px solid #ccc;
+  max-width: 60%;
+}
+
+.body .message {
+  min-height: 30px;
+  border-radius: 3px;
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #797979;
+  word-wrap: break-word;
+  width: 95%;
+ 
+}
+
+#commentList{
+    position: fixed;
+    left: 65%;
+    top: 11%;
+    overflow: auto;
+    max-height: 75%;
+}
+
+#toggleComment{
+    position:fixed;
+    left: 68%;
+    top: 1%;
+    padding: 10px;
+    background-color: orangered;
+    border-radius: 15px;
+    max-width: 22%
+}
+
+#score{
+    font-family: "Big Caslon";
+	font-size: 37px;
+	font-style: italic;
+	font-variant: small-caps;
+	font-weight: bold;
+	line-height: 29.7px;
+    color: orangered;
+    position: fixed;
+    left: 45%;
+    top: 1%;
+}
+
+
+
+#content {
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    position: fixed;
+    font-size: 60;
+    left: 10%;
+    top: 10%;
+    max-width: 40%;
+}
+
+#postComment {
+    
+    position: fixed;
+    left: 68%;
+    top: 90%;
+    
+}
+
+#contentField{
+    min-height: 45%;
+}

@@ -56,3 +56,22 @@
   color: #fff;
   
 }
+
+.searchbox{
+  position: fixed;
+  left: 45%;
+}
+
+.title {
+  font-family: "Big Caslon";
+	font-size: 27px;
+	font-style: italic;
+	font-variant: small-caps;
+	font-weight: bold;
+	line-height: 29.7px;
+  color: orangered;
+}
+
+input.body {
+  width:15%;
+}

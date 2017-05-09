@@ -17,6 +17,13 @@
     <li><%= link_to 'Publishers', publishers_path, method: :get %></li>
     <li><%= link_to 'Platforms', platforms_path, method: :get%></li>
     <li><%= link_to 'Reviews', reviews_path, method: :get%></li>
+
+    <%if current_user.nil?%>
+    <li><%= link_to 'Sign in', '/signin', method: :get%></li>
+    <li><%= link_to 'Sign up', '/signup', method: :get%></li>
+   <% else %> 
+     <li><%= link_to 'Sign out', '/signout', method: :get%></li>
+  <% end %>   
   </ul>
 </div>
 <div id="content-wrapper">

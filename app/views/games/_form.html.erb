@@ -1,10 +1,9 @@
 
-<%= form_for(@game) do |f| %>
+<%= bootstrap_form_for(@game) do |f| %>
 
 
     <%= f.text_field :name %>
     <%= f.select :publisher_id, options_from_collection_for_select(@publishers, :id, :name)%>
-    <!--<%= f.select :platforms, options_from_collection_for_select(@platforms, :id, :title, {:multiple => true} )%>-->
     <% @platforms.each do |platform| %>
         <label><%= platform.title %></label> 
       <input type="checkbox" name="platform_ids[]" value= <%= platform.id %> />
