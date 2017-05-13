@@ -19,12 +19,20 @@
         <button class="btn btn-danger btn-xs" ng-click="sortBy('score')">Score</button>
         <span class="sortorder" ng-show="propertyName === 'score'" ng-class="{reverse: reverse}"></span>
    </th>
+   <th>
+        <button class="btn btn-danger btn-xs" ng-click="sortBy('user.username')">Made by</button>
+        <span class="sortorder" ng-show="propertyName === 'user.username'" ng-class="{reverse: reverse}"></span>
+   </th>
   </tr>
   </thead> 
-  <tr ng-repeat="review in reviews | filter:keywords | orderBy:propertyName:reverse">
+  <tr ng-repeat="review in reviews | filter:keywords | orderBy:propertyName:reverse | limitTo: 30">
     <td><a ng-href='reviews/{{review.id}}' target="_self">{{review.title}}</a></td>
     <td>{{review.game.name}} </td>
     <td>{{review.score}}/10</td>
+    <td>{{review.user.username}}</td>
+    <% if current_user && current_user.isAdmin %>
+    <td><a data-confirm="Are you sure?" data-method="delete" ng-href='reviews/{{review.id}}' target="_self"><button class="btn btn-danger">Delete</button></a></td>
+    <% end %>
   </tr>
 </table> 
 </div>

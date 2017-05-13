@@ -4,8 +4,11 @@
 
 <div ng-app="platformApp" ng-controller="platformController">
 
-<h3 data-toggle="modal" data-target="#platModal"><button class="btn btn-danger btn-lg">Add a new platform</button></h3>
+<% if current_user && current_user.isAdmin %>
 
+<button  data-toggle="modal" data-target="#platModal" id="newPlatform" class="btn btn-danger btn-lg">Add a new platform</button>
+
+<% end %>
 <table id="platforms" class="table table-hover">
   <thead>
     <tr>
@@ -16,6 +19,9 @@
   <tr ng-repeat="platform in platforms | filter:keywords">
     <td><a href='platforms/{{platform.id}}'>{{platform.title}}</a></td>
     <td>{{platform.description}}</td>
+    <% if current_user && current_user.isAdmin %>
+      <td><a data-confirm="Are you sure?" data-method="delete" ng-href='platforms/{{platform.id}}' target="_self"><button class="btn btn-danger">Delete</button></a></td>
+    <% end %>
   </tr>
 
 </table>

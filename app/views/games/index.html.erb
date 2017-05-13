@@ -4,6 +4,10 @@
 
 <input class="searchbox" ng-model="keywords" placeholder="Enter keywords">
 
+<% if current_user && current_user.isAdmin %>
+  <a href="games/new"><button  id="newGame" class="btn btn-danger btn-lg">Add game</button></a>
+<% end %>
+
 <table id="games" class="table table-hover">
   <thead>
   <tr>
@@ -15,12 +19,13 @@
   <tr ng-repeat="game in games | filter:keywords">
     <td><a href='games/{{game.id}}' target="_self">{{game.name}}</a></td>
     <td>{{game.publisher.name}}</td>
-    
+    <% if current_user && current_user.isAdmin %>
+      <td><a data-confirm="Are you sure?" data-method="delete" ng-href='games/{{game.id}}' target="_self"><button class="btn btn-danger">Delete</button></a></td>
+    <% end %>
   </tr>
 </table>  
 
 </div>
 
-<% if current_user %>
-<%= link_to 'New Game', new_game_path, method: :get %>
-<% end %>
+
+

@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#platList{
+  max-width: 11%;
+}
+
 #content-wrapper{
     left:170px;
     padding-left: 200px;
@@ -60,6 +64,7 @@
 .searchbox{
   position: fixed;
   left: 45%;
+  top: 2%;
 }
 
 .title {

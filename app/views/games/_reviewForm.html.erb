@@ -2,7 +2,7 @@
 
   <div class="field">
     
-    <%= f.text_field :title %>
+    <%= f.text_field :title,  :required => true%>
   </div>
 
   <div class="field">
@@ -10,10 +10,10 @@
   </div>
 
   <div id="contentField" class="field">
-    <%= f.text_area :content, size: "30x35" %>
+    <%= f.text_area :content, size: "30x35",  :required => true%>
   </div>
   
-  <%= f.hidden_field :game_id, value: @game.id %>
+  <%= f.hidden_field :game_id, value: @game.id  %>
 
   
   <div class="actions">

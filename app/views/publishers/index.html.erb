@@ -6,11 +6,9 @@
 <div ng-app="publisherApp" ng-controller="PublisherController">
 
 
-<% if current_user %>
+<% if current_user && current_user.isAdmin  %>
 <div id="pubForm">
-<h3 data-toggle="modal" data-target="#pubModal"><button class="btn btn-danger btn-lg">Add a new publisher</button></h3>
-
-
+<button id="addPublisher" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#pubModal">Add a new publisher</button>
 </div>
 <% end %>
 
@@ -25,6 +23,9 @@
   </thead> 
   <tr ng-repeat="publisher in publishers | filter:keywords">
     <td><a href='publishers/{{publisher.id}}' target="_self">{{publisher.name}}</a></td>
+    <% if current_user && current_user.isAdmin %>
+      <td><a data-confirm="Are you sure?" data-method="delete" ng-href='publishers/{{publisher.id}}' target="_self"><button class="btn btn-danger">Delete</button></a></td>
+    <% end %>
   </tr>
 </table> 
 

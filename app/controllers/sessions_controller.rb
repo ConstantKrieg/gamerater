@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
         if user && user.authenticate(params[:password]) 
               session[:user_id] = user.id 
-              redirect_to user, notice: "Welcome back!"
+              redirect_to :root, notice: "Welcome back!"
         else
             redirect_to :back, notice: "Wrong username or password!"
         end    
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
     def destroy
         session[:user_id] = nil
 
-        redirect_to :publishers
+        redirect_to :back
     end    
 end

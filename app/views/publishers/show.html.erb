@@ -24,7 +24,7 @@
   </tr>
   </thead> 
   <tr ng-repeat="review in publisher.reviews | filter:keywords">
-    <td><a ng-href='/reviews/{{review.id}}/' target="_self">{{review.title}}</a></td>
+    <td><a ng-href='/reviews/{{review.id}}' target="_self">{{review.title}}</a></td>
     <td>{{review.game.name}}</td>
     <td>{{review.score}}/10</td>
     

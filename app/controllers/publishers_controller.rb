@@ -1,5 +1,6 @@
 class PublishersController < ApplicationController
   before_action :set_publisher, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_that_admin, except: [:index, :show]
   skip_before_action :verify_authenticity_token
 
   # GET /publishers

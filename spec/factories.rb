@@ -3,6 +3,14 @@ FactoryGirl.define do
     username "Pekka"
     password "Foobar1"
     password_confirmation "Foobar1"
+    isAdmin true
+  end
+
+  factory :user2, class: User do
+    username "Pekka3"
+    password "Foobar1"
+    password_confirmation "Foobar1"
+    isAdmin false
   end
 
   factory :publisher do

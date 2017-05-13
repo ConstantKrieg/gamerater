@@ -1,4 +1,4 @@
 json.extract! @publisher, :id, :name
-json.reviews @publisher.reviews, :title, :score, :game
+json.reviews @publisher.reviews, :id, :title, :score, :game
 
        

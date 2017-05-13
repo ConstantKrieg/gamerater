@@ -4,9 +4,11 @@
         <div class="dialogbox">
          <div class="body">
          <h5>{{comment.user.username}}</h5> <span>{{comment.created_at}}</span></br>
-            <div class="message">
-            
-        <span>{{comment.content}}</span>
+          <div class="message">
+              <span>{{comment.content}}</span>
+              <% if current_user && current_user.isAdmin %>
+                 <a data-confirm="Are you sure?" data-method="delete" ng-href='/comments/{{comment.id}}' target="_self"><button class="btn btn-danger btn-xs">Delete</button></a>
+              <% end %>    
       </div>
     </div>
   </div>

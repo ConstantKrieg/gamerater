@@ -1,18 +1,54 @@
 <p id="notice"><%= notice %></p>
 <div ng-app="gameApp" ng-controller="gameController">
 
-  
-  <h2 class="title"><%= @game.name %></h2>
+  <div style=display:none;>
+    <p id="gameId"> <%= @game.id%></p>
+  </div>
+
+<div ng-app="gameApp" ng-controller="singleGameController">
+  <h2 class="title">{{game.name}} </h2>
 
 
 
 
-<p>
-  <strong>Publisher:</strong>
-  <%= @game.publisher.name%>
-</p>
+<h4 ><strong>Publisher:</strong></h4>
+  {{game.publisher.name}}
 
-<p><%= @game.platforms%></p>
+<h4><strong>Platforms:</strong></h4>
+<ul id="platList" class="list-group">
+  <li  class="list-group-item" ng-repeat="platform in platforms">{{platform.title}}</li>
+</ul>
+
+<h3><i>{{game.name}} has the average score of {{avgScore}} out of 10</i></h3>
+
+<h2 class="title">Reviews for {{game.name}}</h2>
+
+<table id="gameReviews" class="table table-hover">
+  <thead>
+  <tr>
+   <th>
+        <button class="btn btn-danger btn-xs" ng-click="sortBy('title')">Title</button>
+        <span class="sortorder" ng-show="propertyName === 'title'" ng-class="{reverse: reverse}"></span>
+  </th>
+   <th>
+        <button class="btn btn-danger btn-xs" ng-click="sortBy('score')">Score</button>
+        <span class="sortorder" ng-show="propertyName === 'score'" ng-class="{reverse: reverse}"></span>
+   </th>
+   <th>
+        <button class="btn btn-danger btn-xs" ng-click="sortBy('user.username')">Made by</button>
+        <span class="sortorder" ng-show="propertyName === 'user.username'" ng-class="{reverse: reverse}"></span>
+   </th>
+  </tr>
+  </thead> 
+  <tr ng-repeat="review in game.reviews | filter:keywords | orderBy:propertyName:reverse | limitTo: 30">
+    <td><a ng-href='/reviews/{{review.id}}' target="_self">{{review.title}}</a></td>
+    <td>{{review.score}}/10</td>
+    <td>{{review.user.username}}</td>
+    <% if current_user && current_user.isAdmin %>
+    <td><a data-confirm="Are you sure?" data-method="delete" ng-href='reviews/{{review.id}}' target="_self"><button class="btn btn-danger">Delete</button></a></td>
+    <% end %>
+  </tr>
+</table>   
 
 <% if current_user%>
 
@@ -45,5 +81,4 @@
 
 </div>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+</div>
