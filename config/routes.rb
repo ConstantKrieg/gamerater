@@ -2,10 +2,8 @@ Rails.application.routes.draw do
   resources :platforms
   resources :reviews
   resources :comments
-  resources :ratings
   resources :users
   resources :games
-  resources :genres
   resources :publishers
   resource :session, only: [:new, :create, :destroy]
 
