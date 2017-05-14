@@ -21,6 +21,10 @@ FactoryGirl.define do
     name "Assetto Corsa"
   end
 
+  factory :comment do
+    content "aaaa"
+  end
+
   factory :review do
     title "re"
     score 10

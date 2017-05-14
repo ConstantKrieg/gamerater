@@ -4,5 +4,7 @@ class Review < ActiveRecord::Base
     
     has_many :comments
 
+    validates :title, presence: true
     validates :score, :inclusion => 0..10
+    validates :content, presence: true
 end

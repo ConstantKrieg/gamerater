@@ -24,7 +24,7 @@
   <% if current_user%>
     <form id="postComment" ng-submit="submitComment()">
      <textarea id="commentArea" rows="3" cols="40"  ng-model="comment.content" placeholder="Write your comment here"></textarea>
-      <input type="submit" class="btn btn-success"/>
+      <input id="commentButton" type="submit" class="btn btn-success"/>
     </form>
    <% end %>
     <%= render 'comment_list'%>

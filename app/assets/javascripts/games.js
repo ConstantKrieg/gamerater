@@ -29,7 +29,11 @@ gameApp.controller("singleGameController", function($scope, $http){
             total += review.score;
         })
 
-        $scope.avgScore = (total / $scope.game.reviews.length).toFixed(2);
+        $scope.avgScore = $scope.game.name + " has the average score of " + (total / $scope.game.reviews.length).toFixed(2) + " out of 10";
+
+        if($scope.game.reviews.length === 0) {
+            $scope.avgScore = "This game hasn't been reviewed yet";
+        }
 
       });
 });

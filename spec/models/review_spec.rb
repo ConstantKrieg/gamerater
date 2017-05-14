@@ -13,5 +13,19 @@ RSpec.describe Review, type: :model do
 
     expect(review).not_to be_valid
     expect(Review.count).to eq(0)
-  end    
+  end
+
+  it "Doesnt save with invalid title" do
+    review = Review.create  score: 19, content: "asdf"
+
+    expect(review).not_to be_valid
+    expect(Review.count).to eq(0)
+  end
+
+  it "Doesnt save with invalid content" do
+    review = Review.create title: "review", score: 19
+
+    expect(review).not_to be_valid
+    expect(Review.count).to eq(0)
+  end          
 end

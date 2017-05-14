@@ -27,6 +27,7 @@ describe "reviewlist page" do
     @game2 = FactoryGirl.create(:game, name: "F1 2016", publisher: @publisher2, platforms: [@platform1])
     @game3 = FactoryGirl.create(:game, name: "GTR 2", publisher: @publisher3, platforms: [@platform1])
     @review = FactoryGirl.create(:review, id: 1, title: "testreview", score: 5, content:"testcontent", game: @game1)
+    @comment = FactoryGirl.create(:comment, id: 1, content: "testcomment", review: @review)
     visit signin_path
     fill_in('username', with:"Pekka")
     fill_in('password', with:"Foobar1")
@@ -55,6 +56,31 @@ describe "reviewlist page" do
     click_link "testreview"
     
     expect(page).to have_content "testcontent"
+  end
+
+  it "can view and delete comments", :js => true do
+    visit reviews_path
+    
+    
+    click_link "testreview"
+    click_button "Show comments"
+    click_button "Delete"
+    page.driver.browser.switch_to.alert.accept
+
+    expect(page).to have_content "Comment was successfully destroyed."
+  end
+
+  it "can add comments", :js => true do
+    visit reviews_path
+    
+    
+    click_link "testreview"
+    click_button "Show comments"
+    fill_in('commentArea', with:"commenting...")
+    find("#commentButton").click
+    
+
+    expect(page).to have_content "commenting..."
   end
 
   it "admin can delete a review", :js => true do

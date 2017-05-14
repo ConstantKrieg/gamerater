@@ -13,6 +13,7 @@
 <div id="sidebar-wrapper">
   <!--I have to override the get method in turbolinks so that my javascript works properly -->
   <ul class="sidebar-nav" id="sidebar">
+    <li><%= link_to 'RaceGameRater', :root, method: :get%></li>
     <li><%= link_to 'Games', games_path, method: :get%></li>
     <li><%= link_to 'Publishers', publishers_path, method: :get %></li>
     <%if current_user && current_user.isAdmin %>

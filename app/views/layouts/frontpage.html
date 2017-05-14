@@ -2,38 +2,46 @@
     
 
     <div class="jumbotron">
-        <h1>Welcome to RaceGameRater</h1>
+        <h1 ><font color="orangered">Welcome to RaceGameRater</font></h1>
         <p class="lead">RaceGameRater is a website for reviewing and discussing racing simulators</p>
+        <% if current_user.nil? %>
         <p>
             <a class="btn btn-lg btn-success sh-active-element" href="/signup" role="button">Sign up today</a>
         </p>
+        <%end %>
     </div>
 
     <div class="row marketing">
         <div class="col-lg-6">
-            <h4><%= link_to 'Review games', games_path, method: :get%> </h4>
+            <h4><font color="orangered"><%= link_to 'Review games', games_path, method: :get%> </font></h4>
             <p>Write your own review from a racing games</p>
 
-            <h4><%= link_to 'Browse', reviews_path, method: :get%></h4>
+            <h4><font color="orangered"><%= link_to 'Browse', reviews_path, method: :get%></font></h4>
             <p>Browse and read reviews made by other RaceGameRater users</p>
 
-            <h4>Share your opinion</h4>
+            <h4><font color="orangered">Share your opinion</font></h4>
             <p>Comment on other reviews</p>
         </div>
-
+        <% if current_user.nil? %>
         <div class="col-lg-6">
-            <h4><%= link_to 'Log in', '/signin', method: :get%></h4>
+            <h4><font color="orangered"><%= link_to 'Log in', '/signin', method: :get%></font></h4>
             <p>Log in to start</p>
 
-            <h4><%= link_to 'Sign up', '/signup', method: :get%></h4>
+            <h4><font color="orangered"><%= link_to 'Sign up', '/signup', method: :get%></font></h4>
             <p>You don't have an account yet? Click this link to join</p>
 
         
         </div>
+        <% else %>
+        <div id="twitterfeed" class="col-lg-6">
+            <a class="twitter-timeline"  href="https://twitter.com/hashtag/Motorsport" data-widget-id="863804936995340288">#Motorsport twiitit</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+        <%end %>
     </div>
 
     
 
 </div>
-->
+
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
