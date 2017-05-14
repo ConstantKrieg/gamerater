@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :platforms
   resources :reviews
   resources :comments
-  resources :users
+  resources :users, only: [:new, :create]
   resources :games
   resources :publishers
   resource :session, only: [:new, :create, :destroy]
